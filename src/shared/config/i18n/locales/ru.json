@@ -1,0 +1,23 @@
+{
+  "domains": {
+  },
+  "enums": {
+
+  },
+  "general_actions": {
+    "start": "Начать",
+    "toggle": "Переключить"
+  },
+  "general_errors": {
+    "not_found_page": "Страница не найдена"
+  },
+  "general_placeholders": {
+    "no_options": "Вариантов нет",
+    "not_chosen": "Не выбрано",
+    "enter_text": "Введите текст"
+  },
+  "navigation": {
+    "main": "Главная",
+    "about": "О сайте"
+  }
+}

@@ -1,0 +1,16 @@
+@import '../../../../app/styles/variables/mixins';
+
+.field {
+  @include field;
+
+  max-width: 100%;
+
+  &--secondary {
+    background: var(--bg-color-variants);
+  }
+}
+
+
+.error {
+  border-color: var(--error);
+}

@@ -1,0 +1,14 @@
+@import '../../../../app/styles/variables/mixins';
+
+.field {
+  @include field;
+
+  &--secondary {
+    background-color: var(--bg-color);
+  }
+}
+
+
+.error {
+  border-color: var(--error);
+}

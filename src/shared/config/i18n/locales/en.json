@@ -1,0 +1,24 @@
+{
+  "domains": {
+    
+  },
+  "enums": {
+    
+  },
+  "general_actions": {
+    "start": "Start",
+    "toggle": "Toggle"
+  },
+  "general_errors": {
+    "not_found_page": "Not Found Page"
+  },
+  "general_placeholders": {
+    "no_options": "No options",
+    "not_chosen": "Not chosen",
+    "enter_text": "Placeholder"
+  },
+  "navigation": {
+    "main": "Main",
+    "about": "About"
+  }
+}

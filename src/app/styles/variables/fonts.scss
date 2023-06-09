@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'SB Sans Interface';
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: local('SB Sans Interface'),
+      local('SB Sans Interface'),
+      url('../../shared/assets/fonts/SB\ Sans\ Interface.woff2') format('woff2'),
+      url('../../shared/assets/fonts/SB\ Sans\ Interface.woff') format('woff');
+  }
+
+@font-face {
+  font-family: 'SB Sans Interface Semibold';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: local('SB Sans Interface Semibold'),
+    local('SB Sans Interface Semibold'),
+    url('../../shared/assets/fonts/SB\ Sans\ Interface\ Semibold.ttf') format('ttf'),
+    url('../../shared/assets/fonts/SB\ Sans\ Interface\ Semibold.woff2') format('woff2');
+}

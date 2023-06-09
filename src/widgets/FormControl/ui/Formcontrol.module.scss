@@ -1,0 +1,15 @@
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  border: none;
+}
+
+.helperText {
+  color: var(--inverted-secondary-color);
+}
+
+.error {
+  color: var(--error);
+}
