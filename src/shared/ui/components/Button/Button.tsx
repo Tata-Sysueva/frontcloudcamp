@@ -1,35 +1,71 @@
-import { type ButtonHTMLAttributes, type FC } from 'react';
+import React, { type FC } from 'react';
+
+import { Link } from 'react-router-dom';
 
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 
 import cls from './Button.module.scss';
 
-export enum ThemeButton {
-  PRIMARY = 'primary',
-  OUTLINE = 'outline'
-}
+type ContainerElement = HTMLButtonElement | HTMLAnchorElement;
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   className?: string;
+  element: string;
+  link?: string;
   theme?: ThemeButton;
   type?: 'button' | 'submit' | 'reset';
   isDisabled?: boolean;
+  onClick?: (evt: React.MouseEvent<ContainerElement>) => void;
 }
 
 export const Button: FC<ButtonProps> = ({
   className = '',
   children,
+  element = TypeElement.BUTTON,
+  link = '',
   theme = ThemeButton.PRIMARY,
   type,
   isDisabled,
+  onClick,
   ...otherProps
-}) => (
-  <button
-    {...otherProps}
-    className={classNames(cls.button, {}, [cls[className], cls[theme]])}
-    type={type || 'button'}
-    disabled={isDisabled}
-  >
-    {children}
-  </button>
-);
+}) => {
+  const handleActionClick = (evt: React.MouseEvent<ContainerElement>) => {
+    if (isDisabled) {
+      evt.preventDefault();
+    }
+
+    onClick?.(evt);
+  };
+
+  const getElement = (): JSX.Element | string => {
+    switch (element) {
+      case TypeElement.BUTTON:
+        return (
+          <button
+            {...otherProps}
+            className={classNames(cls.button, {}, [cls[className], cls[theme]])}
+            type={type || 'button'}
+            disabled={isDisabled}
+            onClick={(evt) => handleActionClick(evt)}
+          >
+            {children}
+          </button>
+        );
+      case TypeElement.LINK:
+        return (
+          <Link
+            {...otherProps}
+            to={link}
+            className={classNames(cls.link, {}, [cls[className], cls[theme]])}
+          >
+            {children}
+          </Link>
+        );
+      default:
+        throw Error(`Unknown element ${element}`);
+    }
+  };
+
+  return <>{getElement()}</>;
+};
