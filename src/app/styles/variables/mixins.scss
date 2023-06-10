@@ -1,12 +1,16 @@
 @mixin field {
     padding: 12px;
   
-    background: var(--bg-color);
+    background: var(--inverted-bg-color-variants);
     border: 1px solid var(--primary-color-variants);
     border-radius: 4px;
   
     &:focus-visible {
       border: 1px solid var(--secondary-color);
+    }
+
+    &:disabled {
+      background-color: var(--secondary-color-light);
     }
 }
 
