@@ -6,6 +6,7 @@
     
   },
   "general_actions": {
+    "close_modal": "Close modal",
     "start": "Start",
     "toggle": "Toggle"
   },

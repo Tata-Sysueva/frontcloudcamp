@@ -5,5 +5,6 @@ export enum TypeElement {
 
 export enum ThemeButton {
   PRIMARY = 'primary',
-  OUTLINE = 'outline'
+  OUTLINE = 'outline',
+  CLEAR = 'clear'
 }

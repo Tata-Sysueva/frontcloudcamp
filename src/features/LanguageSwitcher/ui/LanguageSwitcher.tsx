@@ -2,13 +2,15 @@ import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
 import { MdLanguage } from 'react-icons/md';
 
-import { Button, ThemeButton } from 'shared/ui/components/Button/Button';
+import { Button } from 'shared/ui/components/Button/Button';
+import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 
 export const LanguageSwitcher = () => {
   const [, { language, changeLanguage }] = useTranslation();
 
   return (
     <Button
+      element={TypeElement.BUTTON}
       theme={ThemeButton.PRIMARY}
       onClick={() => {
         changeLanguage(language === 'en' ? 'ru' : 'en').catch((err) =>

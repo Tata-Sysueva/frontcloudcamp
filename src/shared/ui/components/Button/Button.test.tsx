@@ -1,26 +1,83 @@
-import { fireEvent } from '@testing-library/react';
-import { t } from 'i18next';
+import { render, fireEvent } from '@testing-library/react';
+import { MdClose } from 'react-icons/md';
 
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { TypeElement, ThemeButton } from 'shared/ui/constants/constants';
 
-import { Button, ThemeButton } from './Button';
+import { Button } from './Button';
 
 describe('Button', () => {
-  it('calls onClick prop when button is clicked', () => {
-    const handleClick = jest.fn();
-    const { getByRole } = renderWithTranslation(
-      <Button onClick={handleClick}>{t('general_actions:toggle')}</Button>
+  it('renders a button element', () => {
+    const { getByText } = render(
+      <Button element={TypeElement.BUTTON}>Click me</Button>
     );
 
-    fireEvent.click(getByRole('button'));
+    expect(getByText('Click me')).toBeInTheDocument();
+  });
+
+  it('renders a link element', () => {
+    const { getByText } = render(
+      <Button
+        element={TypeElement.LINK}
+        link="https://google.com/"
+      >
+        Click me
+      </Button>
+    );
+
+    expect(getByText('Click me')).toHaveAttribute('to', 'https://google.com/');
+  });
+
+  it('calls the onClick handler when clicked', () => {
+    const handleClick = jest.fn();
+    const { getByText } = render(
+      <Button
+        element={TypeElement.BUTTON}
+        onClick={handleClick}
+      >
+        Click me
+      </Button>
+    );
+
+    fireEvent.click(getByText('Click me'));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('applies the correct theme class', () => {
-    const { container } = renderWithTranslation(
-      <Button theme={ThemeButton.PRIMARY}>{t('general_actions:toggle')}</Button>
+  it('disables the button when isDisabled is true', () => {
+    const { getByText } = render(
+      <Button
+        element={TypeElement.BUTTON}
+        isDisabled
+      >
+        Click me
+      </Button>
     );
 
-    expect(container.firstChild).toHaveClass('clear');
+    expect(getByText('Click me')).toBeDisabled();
+  });
+
+  it('renders an icon', () => {
+    const { getByText } = render(
+      <Button
+        element={TypeElement.BUTTON}
+        icon={<MdClose />}
+      >
+        Click me
+      </Button>
+    );
+
+    expect(getByText('Click me')).toBeInTheDocument();
+  });
+
+  it('applies a theme', () => {
+    const { getByText } = render(
+      <Button
+        element={TypeElement.BUTTON}
+        theme={ThemeButton.OUTLINE}
+      >
+        Click me
+      </Button>
+    );
+
+    expect(getByText('Click me')).toHaveClass('button', 'outline');
   });
 });

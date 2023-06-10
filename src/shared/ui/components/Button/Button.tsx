@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import React, { type ReactNode, type FC } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -16,6 +16,7 @@ interface ButtonProps {
   theme?: ThemeButton;
   type?: 'button' | 'submit' | 'reset';
   isDisabled?: boolean;
+  icon?: ReactNode;
   onClick?: (evt: React.MouseEvent<ContainerElement>) => void;
 }
 
@@ -27,6 +28,7 @@ export const Button: FC<ButtonProps> = ({
   theme = ThemeButton.PRIMARY,
   type,
   isDisabled,
+  icon,
   onClick,
   ...otherProps
 }) => {
@@ -49,6 +51,7 @@ export const Button: FC<ButtonProps> = ({
             disabled={isDisabled}
             onClick={(evt) => handleActionClick(evt)}
           >
+            {icon && icon}
             {children}
           </button>
         );
@@ -59,6 +62,7 @@ export const Button: FC<ButtonProps> = ({
             to={link}
             className={classNames(cls.link, {}, [cls[className], cls[theme]])}
           >
+            {icon && icon}
             {children}
           </Link>
         );

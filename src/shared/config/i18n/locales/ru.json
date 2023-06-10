@@ -5,6 +5,7 @@
 
   },
   "general_actions": {
+    "close_modal": "Закрыть модальное окно",
     "start": "Начать",
     "toggle": "Переключить"
   },

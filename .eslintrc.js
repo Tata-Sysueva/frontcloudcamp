@@ -17,6 +17,12 @@ module.exports = {
         'no-restricted-imports': 'off',
         'react/button-has-type': 'off'
       }
+    },
+    {
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      rules: {
+        'i18next/no-literal-string': 'off'
+      }
     }
   ],
   env: {

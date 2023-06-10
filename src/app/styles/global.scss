@@ -1,0 +1,65 @@
+:root {
+    //colors
+    --grey1000: #2b2a2a;
+    --grey900: #333333;
+    --grey800: #3d3d3d;
+    --grey600: rgb(0 0 0 / 48%);
+    --grey500: #cccccc;
+    --grey400: #b3b3b3;
+    --grey300: rgb(0 0 0 / 16%);
+    --grey200: #f4f4f5;
+    --grey100: rgb(0 0 0 / 4%);
+    --grey0: #ffffff;
+    --light-grey: rgba(0, 0, 0, 0.04);
+    --purple800: #7900eb;
+    --purple400: #d5e4f7;
+    --pink-purple400: #9500cf;
+    --red: #d10000;
+    --light-red: rgba(232, 78, 88, 0.15);
+    --green: rgba(5, 174, 113, 0.15);
+    //fonts
+    --font-family-main: "SB Sans Interface", arial, sans-serif;
+    --font-size-sm: 12px;
+    --font-line-sm: 16px;
+    --font-sm: var(--font-size-sm) / var(--font-line-sm) var(--font-family-main);
+    --font-size-m: 14px;
+    --font-line-m: 20px;
+    --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+}
+
+.app {
+    min-height: 100vh;
+    font: var(--font-m);
+    color: var(--primary-color);
+    background: var(--secondary-bg-color);
+}
+
+.content-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+}
+
+.page-wrapper {
+    flex-grow: 1;
+    
+    width: 900px;
+    min-height: 704px;
+    padding: 25px 24px;
+
+    background-color: var(--bg-color);
+    border-radius: 12px;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
