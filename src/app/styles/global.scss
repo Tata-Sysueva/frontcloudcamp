@@ -1,5 +1,6 @@
 :root {
-    //colors
+    // colors
+
     --grey1000: #2b2a2a;
     --grey900: #333333;
     --grey800: #3d3d3d;
@@ -10,14 +11,20 @@
     --grey200: #f4f4f5;
     --grey100: rgb(0 0 0 / 4%);
     --grey0: #ffffff;
-    --light-grey: rgba(0, 0, 0, 0.04);
-    --purple800: #7900eb;
+    --light-grey900: #a6a6a6;
+    --light-grey800: rgb(0 0 0 / 8%);
+    --light-grey400: rgb(0 0 0 / 4%);
+    --purple900: #393be2;
+    --purple800: #5558fa;
+    --purple700: #7900eb;
     --purple400: #d5e4f7;
     --pink-purple400: #9500cf;
     --red: #d10000;
-    --light-red: rgba(232, 78, 88, 0.15);
-    --green: rgba(5, 174, 113, 0.15);
-    //fonts
+    --light-red: rgb(232 78 88 / 15%);
+    --green: rgb(5 174 113 / 15%);
+
+    // fonts
+
     --font-family-main: "SB Sans Interface", arial, sans-serif;
     --font-size-sm: 12px;
     --font-line-sm: 16px;
@@ -55,11 +62,15 @@
 }
 
 .visually-hidden {
+    position: absolute;
+
+    overflow: hidden;
+
+    width: 1px;
+    height: 1px;
+
+    white-space: nowrap;
+
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
 }

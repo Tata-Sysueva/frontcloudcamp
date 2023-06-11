@@ -16,15 +16,14 @@ export class ApiService {
 
   private constructor() {
     this._api = axios.create({
-      baseURL: 'https://api.thedogapi.com',
+      baseURL: 'https://api.sbercloud.ru/content/v1/bootcamp/frontend',
       timeout: 10000,
-      headers: {
-        'x-api-key': '162fdd83-f71a-4850-ae1f-f6f5732d9d85'
-      }
+      headers: {}
     });
   }
 
   public static get Instance(): ApiService {
+    // eslint-disable-next-line no-return-assign, @typescript-eslint/no-unnecessary-condition -- Alow in this file
     return this._instance || (this._instance = new this());
   }
 
@@ -35,6 +34,7 @@ export class ApiService {
     return this._api.get(url, config);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Alow in this file
   public post<T, R = any>(
     url: string,
     data: R,

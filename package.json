@@ -93,6 +93,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react-redux": "^7.1.25",
     "axios": "^1.4.0",
+    "copy-webpack-plugin": "^10.2.4",
     "i18next": "22.4.10",
     "lodash": "4.17.21",
     "react": "17.0.2",

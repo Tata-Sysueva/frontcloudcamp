@@ -5,6 +5,7 @@ import webpack from'webpack';
 import { type BuildOptions } from './types/config';
 
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CopyPlugin from 'copy-webpack-plugin';
 
 export function buildPlugins( { paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
   return [
@@ -23,5 +24,10 @@ export function buildPlugins( { paths, isDev }: BuildOptions): webpack.WebpackPl
     new BundleAnalyzerPlugin(
       { analyzerMode: process.env.STATS as 'server' || 'disabled' },
     ),
+    new CopyPlugin({
+      patterns: [
+          { from: paths.assets, to: paths.buildAssets },
+      ],
+  }),
   ]
 }

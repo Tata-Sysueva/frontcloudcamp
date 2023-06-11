@@ -2,11 +2,12 @@
   position: fixed;
   z-index: 99;
 
+  overflow: hidden;
+  overflow-y: auto;
+
   height: 100vh;
   padding: 30px;
 
-  overflow: hidden;
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -22,11 +23,7 @@
 
 .overlay {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-
+  inset: 0;
   background-color: var(--primary-color-variants);
 }
 
@@ -35,10 +32,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   width: 540px;
   padding: 30px;
-  border-radius: 20px;
+
   background-color: var(--bg-color);
+  border-radius: 20px;
 }
 
 .modalHeader {
@@ -52,15 +51,16 @@
 }
 
 .title {
-  font-weight: 600;
   font-size: 20px;
+  font-weight: 600;
   line-height: 26px;
 }
 
 .mainContent {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   min-height: 132px;
   margin-bottom: 22px;
 }

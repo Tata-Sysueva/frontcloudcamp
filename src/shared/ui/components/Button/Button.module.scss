@@ -1,3 +1,7 @@
+.link {
+    text-decoration: none;
+}
+
 .button, .link {
     cursor: pointer;
     padding: 12px 16px;
@@ -18,10 +22,6 @@
     }
 }
 
-.link {
-    text-decoration: none;
-}
-
 .primary {
     color: var(--text-color);
     background: var(--accent-color);
@@ -36,6 +36,10 @@
     color: var(--accent-color);
     background: transparent;
     border: 1.5px solid var(--accent-color);
+
+    &:hover {
+        border-color: var(--secondary-accent-color);
+    }
 }
 
 .clear {
@@ -48,4 +52,24 @@
     color: var(--secondary-color-variants);
     background-color: var(--secondary-color-light);
     border-radius: 100px;
-  }
+}
+
+.circleWrapper {
+    padding: 0;
+
+    &:active,
+    &:focus {
+        opacity: 1;
+    }
+}
+
+.circleWrapper div {
+    &:hover {
+        background-color: var(--dark-assent-color);
+    }
+
+    &:focus {
+        opacity: 1;
+        box-shadow: 8px 10px 56px -7px var(--dark-assent-color);
+    }
+}

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
 
 import { TypeModal } from 'app/constants/constants';
@@ -9,17 +11,24 @@ import {
 } from 'app/store/modalSlice/selectors';
 import { Button } from 'shared/ui/components/Button/Button';
 import { Modal } from 'shared/ui/components/Modal/Modal';
+import { ProgressBar } from 'shared/ui/components/ProgressBar/ProgressBar';
 import { Textarea } from 'shared/ui/components/Textarea/Textarea';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 import { FormControl } from 'widgets/FormControl';
 import { SwitchersBar } from 'widgets/SwitchersBar';
 
 export const MainPage = () => {
+  const [currentStep, updateCurrentStep] = useState(2);
+
   const dispatch = useAppDispatch();
   const isOpened = useAppSelector(selectModalIsOpen);
   const type = useAppSelector(selectModalType);
 
   const [t] = useTranslation();
+
+  const updateStep = (step: number) => {
+    updateCurrentStep(step);
+  };
 
   const closeModal = () => dispatch(hideModal());
 
@@ -36,7 +45,7 @@ export const MainPage = () => {
               theme={ThemeButton.PRIMARY}
               link="google.com"
             >
-              Вернуться на главную
+              {t('general_actions:start')}
             </Button>
           </Modal>
         );
@@ -52,7 +61,7 @@ export const MainPage = () => {
               theme={ThemeButton.PRIMARY}
               onClick={() => dispatch(hideModal())}
             >
-              Вернуться на главную
+              {t('general_actions:start')}
             </Button>
           </Modal>
         );
@@ -78,6 +87,12 @@ export const MainPage = () => {
         >
           <Textarea id="field-sex" />
         </FormControl>
+        <ProgressBar
+          labelArray={[1, 2, 3]}
+          completed="50%"
+          currentStep={currentStep}
+          updateStep={updateStep}
+        />
       </div>
       {isOpened && <>{renderModal()}</>}
     </>

@@ -1,0 +1,96 @@
+.progressBarWrapper {
+  position: relative;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.progress {
+  position: absolute;
+  top: 4px;
+  left: 0;
+
+  width: 100%;
+  height: 8px;
+
+  background-color: var(--secondary-bg-color-variants);
+  border-radius: 8px;
+};
+
+.complitedProgress {
+  height: 100%;
+  text-align: right;
+  background-color: var(--accent-color);
+  border-radius: 8px;
+};
+
+.stepWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.circle {
+  position: relative;
+
+  width: 16px;
+  height: 16px;
+
+  background-color: var(--pimary-color-light);
+  background-clip: padding-box;
+  border-radius: 50%;
+}
+
+.selected .circle,
+.complited .circle {
+  background-color: var(--accent-color);
+}
+
+.selected .circle {
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 6px;
+    left: 6px;
+
+    width: 3.2px;
+    height: 3.2px;
+
+    background-color: var(--bg-color);
+    border-radius: 100%;
+  }
+}
+
+.complited .circle {
+  &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-image: url('../../../assets/icons/tik-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.stepLabel {
+  font-weight: 600;
+  color: var(--pimary-color-light);
+}
+
+.selected .stepLabel,
+.complited .stepLabel {
+  color: var(--accent-color)
+}
+
+.stepBlock {
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
