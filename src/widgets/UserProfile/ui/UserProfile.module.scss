@@ -1,0 +1,29 @@
+.userProfileWrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  width: 100%;
+}
+
+.userInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.userName {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+
+  color: var(--text-color);
+}
+
+.socialLinksBox {
+  display: block;
+
+  @media screen and (max-width: 420px) {
+    display: none;
+  }
+}

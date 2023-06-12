@@ -1,4 +1,4 @@
-import { LanguageSwitcher } from 'features/LanguageSwitcher';
+import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 
 import cls from './SwitchersBar.module.scss';

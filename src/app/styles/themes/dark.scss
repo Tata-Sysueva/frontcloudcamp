@@ -1,8 +1,9 @@
 .dark {
+    --main-color: var(--grey500);
     --bg-color: var(--grey1000);
     --bg-color-variants: var(--grey100);
     --secondary-bg-color: var(--grey900);
-    --secondary-bg-color-variants: var(--light-grey800);
+    --secondary-bg-color-variants: var(--purple400);
     --inverted-bg-color: var(--grey0);
     --inverted-bg-color-variants: var(--grey800);
     --primary-color: var(--grey0);
@@ -13,11 +14,13 @@
     --secondary-color-light: var(--light-grey400);
     --inverted-primary-color: var(--grey900);
     --inverted-secondary-color: var(--grey600);
-    --accent-color: var(--purple800);
+    --accent-color: var(--purple400);
+    --light-assent-color: var(--purple400);
     --dark-assent-color: var(--purple900);
     --secondary-accent-color: var(--pink-purple400);
     --inverted-accent-color: var(--purple800);
     --text-color: var(--grey0);
+    --secondary-text-color: var(--purple1000);
     --error: var(--red);
     --success: var(--green);
 }

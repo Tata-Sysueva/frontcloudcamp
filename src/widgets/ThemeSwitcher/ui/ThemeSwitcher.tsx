@@ -19,7 +19,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
   return (
     <Button
       element={TypeElement.BUTTON}
-      theme={ThemeButton.PRIMARY}
+      theme={ThemeButton.CLEAR}
       className={classNames(cls.themeSwitcher, {}, [
         className,
         cls[theme || Theme.LIGHT]

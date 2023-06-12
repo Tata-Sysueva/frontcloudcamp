@@ -1,18 +1,13 @@
 import { type RouteProps } from 'react-router-dom';
 
-import { AboutPage } from 'pages/AboutPage';
+import { CreatePage } from 'pages/CreatePage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-
-export enum AppRoutes {
-  MAIN = 'main',
-  ABOUT = 'about',
-  NOT_FOUND = 'not_found'
-}
+import { AppRoutes } from 'shared/ui/constants/routeConstants';
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.CREATE]: '/create',
   [AppRoutes.NOT_FOUND]: '*'
 };
 
@@ -21,9 +16,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     path: RoutePath.main,
     element: <MainPage />
   },
-  [AppRoutes.ABOUT]: {
-    path: RoutePath.about,
-    element: <AboutPage />
+  [AppRoutes.CREATE]: {
+    path: RoutePath.create,
+    element: <CreatePage />
   },
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found,

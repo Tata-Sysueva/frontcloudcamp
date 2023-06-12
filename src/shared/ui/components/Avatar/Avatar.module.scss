@@ -1,0 +1,29 @@
+.avatarWrapper {
+  width: 80px;
+  height: 80px;
+}
+
+.avatarImg {
+  width:100%;
+  height:100%;
+  clip-path: circle(50%);
+  object-fit: cover;
+  background-color: var(--light-assent-color);
+}
+
+.defaultAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 40px;
+  line-height: 52px;
+
+  color: var(--secondary-text-color);
+
+  background-color: var(--light-assent-color);
+  border-radius: 100%;
+}

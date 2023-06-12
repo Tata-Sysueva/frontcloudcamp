@@ -1,100 +1,53 @@
 import { useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
+import { IoIosMenu } from 'react-icons/io';
 
-import { TypeModal } from 'app/constants/constants';
-import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { hideModal, showModal } from 'app/store/modalSlice/modalSlice';
-import {
-  selectModalIsOpen,
-  selectModalType
-} from 'app/store/modalSlice/selectors';
+import { UserData } from 'mocks/userData';
 import { Button } from 'shared/ui/components/Button/Button';
-import { Modal } from 'shared/ui/components/Modal/Modal';
-import { ProgressBar } from 'shared/ui/components/ProgressBar/ProgressBar';
-import { Textarea } from 'shared/ui/components/Textarea/Textarea';
+import { Menu } from 'shared/ui/components/Menu/Menu';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
-import { FormControl } from 'widgets/FormControl';
+import { SocialLinks } from 'widgets/SocialLinks';
 import { SwitchersBar } from 'widgets/SwitchersBar';
+import { UserProfile } from 'widgets/UserProfile';
+
+import cls from './MainPage.module.scss';
 
 export const MainPage = () => {
-  const [currentStep, updateCurrentStep] = useState(2);
-
-  const dispatch = useAppDispatch();
-  const isOpened = useAppSelector(selectModalIsOpen);
-  const type = useAppSelector(selectModalType);
+  const [isOpenedMenu, setOpenedMenu] = useState(false);
 
   const [t] = useTranslation();
 
-  const updateStep = (step: number) => {
-    updateCurrentStep(step);
-  };
-
-  const closeModal = () => dispatch(hideModal());
-
-  const renderModal = () => {
-    switch (type) {
-      case TypeModal.SUCCESS:
-        return (
-          <Modal
-            title="Форма успешно отправлена"
-            onClose={closeModal}
-          >
-            <Button
-              element={TypeElement.LINK}
-              theme={ThemeButton.PRIMARY}
-              link="google.com"
-            >
-              {t('general_actions:start')}
-            </Button>
-          </Modal>
-        );
-      case TypeModal.ERROR:
-        return (
-          <Modal
-            title="error"
-            isErrorModal
-            onClose={closeModal}
-          >
-            <Button
-              element={TypeElement.BUTTON}
-              theme={ThemeButton.PRIMARY}
-              onClick={() => dispatch(hideModal())}
-            >
-              {t('general_actions:start')}
-            </Button>
-          </Modal>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
-    <>
-      <div>
-        <SwitchersBar />
+    <div>
+      <div className={cls.pageHeader}>
+        <UserProfile userData={UserData} />
+        {/* <SwitchersBar /> */}
         <Button
           element={TypeElement.BUTTON}
-          theme={ThemeButton.PRIMARY}
-          onClick={() => dispatch(showModal({ type: TypeModal.ERROR }))}
+          theme={ThemeButton.CLEAR}
+          className="openMenu"
+          icon={
+            <IoIosMenu
+              size={32}
+              style={{ fill: '#5558fa' }}
+            />
+          }
+          onClick={() => setOpenedMenu(true)}
         >
-          {t('general_actions:start')}
+          <span className="visually-hidden">{t('general_actions:open')}</span>
         </Button>
-        <FormControl
-          id="field-sex"
-          label="Номер телефона"
+        <Menu
+          isOpened={isOpenedMenu}
+          onClose={() => setOpenedMenu(false)}
         >
-          <Textarea id="field-sex" />
-        </FormControl>
-        <ProgressBar
-          labelArray={[1, 2, 3]}
-          completed="50%"
-          currentStep={currentStep}
-          updateStep={updateStep}
-        />
+          <SocialLinks
+            socialLinks={UserData.socialLinks}
+            className="socialLinksMenu"
+          />
+          <SwitchersBar />
+        </Menu>
       </div>
-      {isOpened && <>{renderModal()}</>}
-    </>
+    </div>
   );
 };

@@ -5,9 +5,13 @@
 
   },
   "general_actions": {
-    "close_modal": "Закрыть модальное окно",
+    "close": "Закрыть",
+    "open": "Открыть",
     "start": "Начать",
     "toggle": "Переключить"
+  },
+  "general_alts": {
+    "user_avatar": "Фото пользователя"
   },
   "general_errors": {
     "not_found_page": "Страница не найдена"

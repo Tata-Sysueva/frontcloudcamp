@@ -1,0 +1,48 @@
+.socialLinksWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: var(--accent-color);
+
+  &:hover {
+    text-decoration: underline var(--dark-assent-color);
+  }
+
+  &:focus {
+    color: var(--dark-assent-color);
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+}
+
+.socialLinks::before {
+  content: '';
+  display: block;
+  width: 13px;
+  height: 12px;
+
+  color: var(--main-color);
+
+  background-image: url('../../../shared/assets/icons/file-icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: var(--main-color);
+}
+
+.socialLinksWrapper.socialLinksMenu {
+  flex-direction: column;
+}

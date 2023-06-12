@@ -11,7 +11,7 @@ export const LanguageSwitcher = () => {
   return (
     <Button
       element={TypeElement.BUTTON}
-      theme={ThemeButton.PRIMARY}
+      theme={ThemeButton.CLEAR}
       onClick={() => {
         changeLanguage(language === 'en' ? 'ru' : 'en').catch((err) =>
           console.error(err)

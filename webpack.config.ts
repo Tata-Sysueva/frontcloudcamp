@@ -11,8 +11,8 @@ export default (env: BuildEnv) => {
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src'),
-    assets: path.resolve(__dirname, 'public', 'assets'),
-    buildAssets: path.resolve(__dirname, 'public', 'assets')
+    assets: path.resolve(__dirname, 'src', 'shared/assets/icons'),
+    buildAssets: path.resolve(__dirname, 'build', 'assets')
   };
 
   const mode = env.mode || 'development';

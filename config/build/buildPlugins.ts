@@ -26,7 +26,7 @@ export function buildPlugins( { paths, isDev }: BuildOptions): webpack.WebpackPl
     ),
     new CopyPlugin({
       patterns: [
-          { from: paths.assets, to: paths.buildAssets },
+          { from: paths.assets, to: paths.buildAssets},
       ],
   }),
   ]

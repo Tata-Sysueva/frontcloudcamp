@@ -46,12 +46,21 @@
     padding: 4px 8px;
     background-color: transparent;
     border: none;
+
+    color: inherit;
 }
 
 .closeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: end;
+    
+    width: 28px;
+    height: 28px;
     color: var(--secondary-color-variants);
     background-color: var(--secondary-color-light);
-    border-radius: 100px;
+    border-radius: 100%;
 }
 
 .circleWrapper {
@@ -71,5 +80,13 @@
     &:focus {
         opacity: 1;
         box-shadow: 8px 10px 56px -7px var(--dark-assent-color);
+    }
+}
+
+.openMenu {
+    display: none;
+
+    @media screen and (max-width: 420px){
+        display: block;
     }
 }

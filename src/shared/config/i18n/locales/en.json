@@ -6,9 +6,13 @@
     
   },
   "general_actions": {
-    "close_modal": "Close modal",
+    "close": "Close",
+    "open": "Open",
     "start": "Start",
     "toggle": "Toggle"
+  },
+  "general_alts": {
+    "user_avatar": "User avatar"
   },
   "general_errors": {
     "not_found_page": "Not Found Page"
