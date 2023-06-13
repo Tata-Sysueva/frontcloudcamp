@@ -10,11 +10,11 @@
   min-height: 640px;
   margin-top: 24px;
   margin-bottom: 24px;
-  padding: 24px 24px 48px 24px;
+  padding: 24px 24px 48px;
 
 
   background-color: var(--bg-color);
-  box-shadow: 0px 5px 10px 0px var(--secondary-bg-color-variants);
+  box-shadow: 0 5px 10px 0 var(--secondary-bg-color-variants);
 
   transition: right 0.6s;
 }
@@ -26,8 +26,8 @@
 .menuWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 24px;
+  justify-content: center;
 
   height: 100%;
   margin-top: 24px;

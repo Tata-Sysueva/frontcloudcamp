@@ -6,22 +6,22 @@
 .avatarImg {
   width:100%;
   height:100%;
-  clip-path: circle(50%);
+
   object-fit: cover;
   background-color: var(--light-assent-color);
+  clip-path: circle(50%);
 }
 
 .defaultAvatar {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   width: 100%;
   height: 100%;
 
   font-size: 40px;
   line-height: 52px;
-
   color: var(--secondary-text-color);
 
   background-color: var(--light-assent-color);

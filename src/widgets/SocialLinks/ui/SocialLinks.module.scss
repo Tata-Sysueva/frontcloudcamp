@@ -6,14 +6,13 @@
 
 .socialLinks {
   display: flex;
-  align-items: center;
   gap: 6px;
+  align-items: center;
 
-  text-decoration: none;
   font-size: 12px;
   line-height: 16px;
-
   color: var(--accent-color);
+  text-decoration: none;
 
   &:hover {
     text-decoration: underline var(--dark-assent-color);
@@ -30,17 +29,18 @@
 
 .socialLinks::before {
   content: '';
+
   display: block;
+
   width: 13px;
   height: 12px;
 
   color: var(--main-color);
 
-  background-image: url('../../../shared/assets/icons/file-icon.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-
   background-color: var(--main-color);
+  background-image: url('../../../shared/assets/icons/file-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .socialLinksWrapper.socialLinksMenu {
