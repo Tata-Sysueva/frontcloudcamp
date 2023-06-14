@@ -1,18 +1,18 @@
 .light {
     --main-color: var(--grey500);
-    --bg-color: var(--grey0);
+    --bg-color: var(--white);
     --bg-color-variants: var(--grey100);
     --secondary-bg-color: var(--grey200);
     --secondary-bg-color-variants: var(--light-grey800);
     --inverted-bg-color: var(--grey900);
-    --inverted-bg-color-variants: var(--grey0);
+    --inverted-bg-color-variants: var(--white);
     --primary-color: var(--grey900);
     --pimary-color-light: var(--light-grey900);
     --primary-color-variants: var(--grey300);
     --secondary-color: var(--grey600);
     --secondary-color-variants: var(--grey400);
     --secondary-color-light: var(--light-grey400);
-    --inverted-primary-color: var(--grey0);
+    --inverted-primary-color: var(--white);
     --inverted-secondary-color: var(--grey600);
     --accent-color: var(--purple800);
     --light-assent-color: var(--purple400);
@@ -20,6 +20,7 @@
     --secondary-accent-color: var(--pink-purple400);
     --inverted-accent-color: var(--purple400);
     --text-color: var(--grey900);
+    --inverted-text-color: var(--white);
     --secondary-text-color: var(--purple1000);
     --error: var(--red);
     --success: var(--green);

@@ -1,7 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 
-import cls from './ProgressBar.module.scss';
+import cls from './Stepper.module.scss';
+import { ReactComponent as TikIcon } from '../../../assets/icons/tik-icon.svg';
 import { Button } from '../Button/Button';
 
 interface StepProps {
@@ -34,7 +35,7 @@ export const Step = ({
       className="circleWrapper"
       onClick={() => updateStep(index + 1)}
     >
-      <div className={cls.circle} />
+      <div className={cls.circle}>{isPrevious && <TikIcon />}</div>
     </Button>
     {label !== undefined && <div className={cls.stepLabel}>{label}</div>}
   </div>

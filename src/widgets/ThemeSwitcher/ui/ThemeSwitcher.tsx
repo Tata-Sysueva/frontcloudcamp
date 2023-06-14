@@ -1,6 +1,6 @@
 import { useTheme } from 'app/providers/ThemeProviders';
 import { Theme } from 'app/providers/ThemeProviders/lib/ThemeContext';
-import ToggleIcon from 'shared/assets/icons/theme-toggle-icon.svg';
+import { ReactComponent as ToggleIcon } from 'shared/assets/icons/theme-toggle-icon.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/components/Button/Button';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';

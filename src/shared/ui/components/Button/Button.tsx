@@ -1,7 +1,6 @@
 import React, { type ReactNode, type FC } from 'react';
 
 import { Link } from 'react-router-dom';
-
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 

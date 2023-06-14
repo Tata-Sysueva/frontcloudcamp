@@ -2,12 +2,25 @@
   "domains": {
   },
   "enums": {
-
+    "feedback_messages": {
+      "error": "Ошибка",
+      "success": "Форма успешно отправлена"
+    },
+    "labels": {
+      "email": "Электронная почта",
+      "number_phone": "Номер телефона"
+    },
+    "links": {
+      "to_main": "На главную",
+      "start": "Начать"
+    }
   },
   "general_actions": {
+    "back": "Назад",
     "close": "Закрыть",
+    "next": "Далее",
     "open": "Открыть",
-    "start": "Начать",
+    "submit": "Отправить",
     "toggle": "Переключить"
   },
   "general_alts": {

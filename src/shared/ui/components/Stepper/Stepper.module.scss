@@ -1,4 +1,4 @@
-.progressBarWrapper {
+.stepperWrapper {
   position: relative;
   display: flex;
   margin-top: 20px;
@@ -32,6 +32,10 @@
 
 .circle {
   position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: 16px;
   height: 16px;
@@ -70,7 +74,11 @@
     top: 0;
     left: 0;
 
-    background-image: url('../../../assets/icons/tik-icon.svg');
+    display: block;
+    width: 15px;
+    height: 15px;
+
+    background-image: url('./tik-icon.svg');
     background-repeat: no-repeat;
     background-position: center;
   }

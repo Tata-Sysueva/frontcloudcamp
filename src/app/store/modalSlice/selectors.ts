@@ -1,4 +1,5 @@
-import { NameSpace } from 'app/constants/constants';
+import { NameSpace } from 'constants/constants';
+
 import { type State } from 'app/types/redux';
 
 const selectModalState = (state: State) => state[NameSpace.MODAL];

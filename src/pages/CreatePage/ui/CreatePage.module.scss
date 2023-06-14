@@ -1,0 +1,12 @@
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 66px;
+
+  padding: 62px 110px 40px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}

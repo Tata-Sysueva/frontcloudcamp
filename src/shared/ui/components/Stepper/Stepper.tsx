@@ -1,20 +1,20 @@
-import cls from './ProgressBar.module.scss';
 import { Step } from './Step';
+import cls from './Stepper.module.scss';
 
-interface ProgressBarProps {
+interface StepperProps {
   labelArray: number[];
   currentStep: number;
   updateStep: (step: number) => void;
   completed: string;
 }
 
-export const ProgressBar = ({
+export const Stepper = ({
   labelArray,
   currentStep,
   updateStep,
   completed
-}: ProgressBarProps) => (
-  <div className={cls.progressBarWrapper}>
+}: StepperProps) => (
+  <div className={cls.stepperWrapper}>
     <div className={cls.progress}>
       <div
         className={cls.complitedProgress}

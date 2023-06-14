@@ -3,8 +3,8 @@ import { type ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './Modal.module.scss';
-import ErrorSvg from '../../../assets/icons/error-icon.svg';
-import SuccessSvg from '../../../assets/icons/success-icon.svg';
+import { ReactComponent as ErrorSvg } from '../../../assets/icons/error-icon.svg';
+import { ReactComponent as SuccessSvg } from '../../../assets/icons/success-icon.svg';
 import { CloseButton } from '../CloseButton/CloseButton';
 
 interface ModalProps {

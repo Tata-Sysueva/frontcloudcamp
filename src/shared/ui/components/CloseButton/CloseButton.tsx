@@ -1,8 +1,7 @@
 import { t } from 'i18next';
-
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 
-import CloseSvg from '../../../assets/icons/close-icon.svg';
+import { ReactComponent as CloseSvg } from '../../../assets/icons/close-icon.svg';
 import { Button } from '../Button/Button';
 
 export const CloseButton = ({ onClose }: { onClose: () => void }) => (

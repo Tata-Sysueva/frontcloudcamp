@@ -4,13 +4,13 @@
     --bg-color-variants: var(--grey100);
     --secondary-bg-color: var(--grey900);
     --secondary-bg-color-variants: var(--purple400);
-    --inverted-bg-color: var(--grey0);
+    --inverted-bg-color: var(--white);
     --inverted-bg-color-variants: var(--grey800);
-    --primary-color: var(--grey0);
+    --primary-color: var(--white);
     --pimary-color-light: var(--light-grey900);
     --primary-color-variants: var(--grey300);
     --secondary-color: var(--grey600);
-    --secondary-color-variants: var(--grey0);
+    --secondary-color-variants: var(--white);
     --secondary-color-light: var(--light-grey400);
     --inverted-primary-color: var(--grey900);
     --inverted-secondary-color: var(--grey600);
@@ -19,7 +19,8 @@
     --dark-assent-color: var(--purple900);
     --secondary-accent-color: var(--pink-purple400);
     --inverted-accent-color: var(--purple800);
-    --text-color: var(--grey0);
+    --text-color: var(--white);
+    --inverted-text-color: var(--grey900);
     --secondary-text-color: var(--purple1000);
     --error: var(--red);
     --success: var(--green);

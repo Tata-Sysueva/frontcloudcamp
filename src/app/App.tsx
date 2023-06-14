@@ -1,5 +1,4 @@
 import { useAsync } from 'react-use';
-
 import { initI18n } from 'shared/config/i18n';
 import { classNames } from 'shared/lib/classNames/classNames';
 

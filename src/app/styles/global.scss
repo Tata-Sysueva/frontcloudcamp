@@ -10,7 +10,7 @@
     --grey300: rgb(0 0 0 / 16%);
     --grey200: #f4f4f5;
     --grey100: rgb(0 0 0 / 4%);
-    --grey0: #ffffff;
+    --white: #ffffff;
     --light-grey900: #a6a6a6;
     --light-grey800: rgb(0 0 0 / 8%);
     --light-grey400: rgb(0 0 0 / 4%);
@@ -58,7 +58,6 @@
     min-width: 280px;
     max-width: 900px;
     min-height: 704px;
-    padding: 25px 24px;
 
     background-color: var(--bg-color);
     border-radius: 12px;

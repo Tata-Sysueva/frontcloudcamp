@@ -3,12 +3,25 @@
     
   },
   "enums": {
-    
+    "feedback_messages": {
+      "error": "Error",
+      "success": "Form submitted successfully"
+    },
+    "labels": {
+      "email": "Email",
+      "number_phone": "Number phone"
+    },
+    "links": {
+      "to_main": "To main",
+      "start": "Start"
+    }
   },
   "general_actions": {
+    "back": "Back",
     "close": "Close",
+    "next": "Next",
     "open": "Open",
-    "start": "Start",
+    "submit": "Submit",
     "toggle": "Toggle"
   },
   "general_alts": {

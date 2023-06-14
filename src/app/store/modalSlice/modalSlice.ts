@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { NameSpace } from 'constants/constants';
 
-import { NameSpace } from 'app/constants/constants';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface InitialState {
   isOpened: boolean;

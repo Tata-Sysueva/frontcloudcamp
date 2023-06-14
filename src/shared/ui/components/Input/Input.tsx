@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './Input.module.scss';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   className?: string;
   placeholder?: string;
@@ -13,7 +13,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const Input = ({
   id,
   className = '',
-  placeholder = 'Placeholder',
+  placeholder,
   ...otherProps
 }: InputProps) => (
   <input

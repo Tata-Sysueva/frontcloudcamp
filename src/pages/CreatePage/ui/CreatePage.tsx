@@ -1,100 +1,79 @@
 import { useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
-import { TypeModal } from 'app/constants/constants';
-import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { hideModal, showModal } from 'app/store/modalSlice/modalSlice';
-import {
-  selectModalIsOpen,
-  selectModalType
-} from 'app/store/modalSlice/selectors';
+import { AboutInfo } from 'features/AboutInfo';
+import { AdvantagesInfo } from 'features/AdvantagesInfo';
+import { GeneralInfo } from 'features/GeneralInfo';
+import { Steps } from 'pages/constans';
 import { Button } from 'shared/ui/components/Button/Button';
-import { Modal } from 'shared/ui/components/Modal/Modal';
-import { ProgressBar } from 'shared/ui/components/ProgressBar/ProgressBar';
-import { Textarea } from 'shared/ui/components/Textarea/Textarea';
-import { TypeElement, ThemeButton } from 'shared/ui/constants/constants';
-import { FormControl } from 'widgets/FormControl';
+import { Stepper } from 'shared/ui/components/Stepper/Stepper';
+import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 import { SwitchersBar } from 'widgets/SwitchersBar';
 
+import cls from './CreatePage.module.scss';
+import { getCompletedWidth } from '../utils';
+
+const formOfStep = {
+  [Steps.StepOne]: GeneralInfo,
+  [Steps.StepTwo]: AdvantagesInfo,
+  [Steps.StepThree]: AboutInfo
+};
+
 export const CreatePage = () => {
-  const [currentStep, updateCurrentStep] = useState(2);
-
-  const dispatch = useAppDispatch();
-  const isOpened = useAppSelector(selectModalIsOpen);
-  const type = useAppSelector(selectModalType);
-
+  const [currentStep, updateCurrentStep] = useState(Steps.StepOne);
+  const navigate = useNavigate();
   const [t] = useTranslation();
+
+  const Content = formOfStep[currentStep];
 
   const updateStep = (step: number) => {
     updateCurrentStep(step);
   };
 
-  const closeModal = () => dispatch(hideModal());
+  const handleBackButtonClick = () =>
+    currentStep === Steps.StepOne
+      ? navigate(-1)
+      : updateCurrentStep(currentStep - 1);
 
-  const renderModal = () => {
-    switch (type) {
-      case TypeModal.SUCCESS:
-        return (
-          <Modal
-            title="Форма успешно отправлена"
-            onClose={closeModal}
-          >
-            <Button
-              element={TypeElement.LINK}
-              theme={ThemeButton.PRIMARY}
-              link="google.com"
-            >
-              {t('general_actions:start')}
-            </Button>
-          </Modal>
-        );
-      case TypeModal.ERROR:
-        return (
-          <Modal
-            title="error"
-            isErrorModal
-            onClose={closeModal}
-          >
-            <Button
-              element={TypeElement.BUTTON}
-              theme={ThemeButton.PRIMARY}
-              onClick={() => dispatch(hideModal())}
-            >
-              {t('general_actions:start')}
-            </Button>
-          </Modal>
-        );
-      default:
-        return null;
-    }
-  };
+  const handleNextButtonClick = () =>
+    currentStep === Steps.StepThree
+      ? console.debug('Submit data, open modal')
+      : updateCurrentStep(currentStep + 1);
 
   return (
-    <>
-      <div>
-        <SwitchersBar />
+    <div className={cls.pageWrapper}>
+      <Stepper
+        labelArray={Object.values(Steps)}
+        completed={getCompletedWidth(currentStep)}
+        currentStep={currentStep}
+        updateStep={updateStep}
+      />
+
+      <div className={cls.content}>
+        <Content />
+      </div>
+
+      <div className={cls.footer}>
+        <Button
+          element={TypeElement.BUTTON}
+          theme={ThemeButton.OUTLINE}
+          onClick={handleBackButtonClick}
+        >
+          {t('general_actions:back')}
+        </Button>
         <Button
           element={TypeElement.BUTTON}
           theme={ThemeButton.PRIMARY}
-          onClick={() => dispatch(showModal({ type: TypeModal.ERROR }))}
+          onClick={handleNextButtonClick}
         >
-          {t('general_actions:start')}
+          {currentStep === 3
+            ? t('general_actions:submit')
+            : t('general_actions:next')}
         </Button>
-        <FormControl
-          id="field-sex"
-          label="Номер телефона"
-        >
-          <Textarea id="field-sex" />
-        </FormControl>
-        <ProgressBar
-          labelArray={[1, 2, 3]}
-          completed="50%"
-          currentStep={currentStep}
-          updateStep={updateStep}
-        />
       </div>
-      {isOpened && <>{renderModal()}</>}
-    </>
+      <SwitchersBar />
+    </div>
   );
 };

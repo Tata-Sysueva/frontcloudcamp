@@ -2,4 +2,9 @@
   display: flex;
   gap: 15px;
   color: var(--accent-color);
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
 }
