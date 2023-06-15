@@ -1,7 +1,10 @@
 .switchersBar {
   display: flex;
   gap: 15px;
+  align-items: start;
+
   color: var(--accent-color);
+
   opacity: 0.6;
 
   &:hover {

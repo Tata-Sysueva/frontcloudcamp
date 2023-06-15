@@ -1,7 +1,8 @@
+import { type RouteProps } from 'react-router-dom';
+
 import { CreatePage } from 'pages/CreatePage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-import { type RouteProps } from 'react-router-dom';
 import { AppRoutes } from 'shared/ui/constants/routeConstants';
 
 export const RoutePath: Record<AppRoutes, string> = {

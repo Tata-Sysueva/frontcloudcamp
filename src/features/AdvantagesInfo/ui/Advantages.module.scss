@@ -1,0 +1,18 @@
+@import '../../../app/styles/variables/mixins';
+
+.formControlWrapper {
+  @include form-control-wrapper;
+}
+
+.advantagesFieldWrapper {
+  display: flex;
+  gap: 8px;
+  max-width: 336px;
+  margin-bottom: 16px;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

@@ -1,6 +1,5 @@
+@import 'app/styles/variables/mixins';
+
 .formControlWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-bottom: 24px;
+  @include form-control-wrapper;
 }

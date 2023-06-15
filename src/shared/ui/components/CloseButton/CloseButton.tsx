@@ -1,4 +1,5 @@
 import { t } from 'i18next';
+
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 
 import { ReactComponent as CloseSvg } from '../../../assets/icons/close-icon.svg';

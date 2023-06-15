@@ -8,8 +8,16 @@
       "success": "Form submitted successfully"
     },
     "labels": {
+      "about": "About",
+      "advantages": "Advantages",
+      "checkbox": "Checkbox group",
       "email": "Email",
-      "number_phone": "Number phone"
+      "name": "Name",
+      "nickname": "Nickname",
+      "number_phone": "Number phone",
+      "radio": "Radio group",
+      "sex": "Sex",
+      "surname": "Surname"
     },
     "links": {
       "to_main": "To main",
@@ -17,8 +25,10 @@
     }
   },
   "general_actions": {
+    "add": "Add",
     "back": "Back",
     "close": "Close",
+    "delete": "Delete",
     "next": "Next",
     "open": "Open",
     "submit": "Submit",

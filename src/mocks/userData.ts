@@ -2,12 +2,13 @@ import { type UserDataType } from './userData.types';
 
 export const UserData: UserDataType = {
   avatar: '',
-  name: 'Иван Иванов',
-  tel: '+7 999 999-99-99',
-  email: 'tim.jennings@example.com',
+  name: 'Татьяна Сысуева',
+  tel: '+7 909 801 27 53',
+  email: 't.sysueva031291.com',
   socialLinks: {
-    telegram: 'telegram.org',
-    gitHub: 'github.com',
-    resume: 'hh.ru'
-  }
+    telegram: 'https://t.me/tra_tata160',
+    gitHub: 'https://github.com/Tata-Sysueva',
+    resume: 'files/resume.pdf'
+  },
+  sex: 'woman'
 };

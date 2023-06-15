@@ -3,10 +3,33 @@
 .field {
   @include field;
 
-  max-width: 100%;
+  min-width: 230px;
+  max-width: 680px;
+  min-height: 60px;
+  max-height: 175px;
 
   &--secondary {
     background: var(--bg-color-variants);
+  }
+
+  @media screen and (width <= 870px) {
+    max-width: 610px;
+  }
+
+  @media screen and (width <= 740px) {
+    max-width: 524px;
+  }
+
+  @media screen and (width <= 640px) {
+    max-width: 424px;
+  }
+
+  @media screen and (width <= 540px) {
+    max-width: 324px;
+  }
+
+  @media screen and (width <= 440px) {
+    max-width: 300px;
   }
 }
 

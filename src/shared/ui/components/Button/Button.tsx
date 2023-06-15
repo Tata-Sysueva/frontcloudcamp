@@ -1,6 +1,7 @@
 import React, { type ReactNode, type FC } from 'react';
 
 import { Link } from 'react-router-dom';
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 
@@ -9,6 +10,7 @@ import cls from './Button.module.scss';
 type ContainerElement = HTMLButtonElement | HTMLAnchorElement;
 
 interface ButtonProps {
+  id?: string;
   className?: string;
   element: string;
   link?: string;
@@ -20,6 +22,7 @@ interface ButtonProps {
 }
 
 export const Button: FC<ButtonProps> = ({
+  id,
   className = '',
   children,
   element = TypeElement.BUTTON,
@@ -28,8 +31,7 @@ export const Button: FC<ButtonProps> = ({
   type,
   isDisabled,
   icon,
-  onClick,
-  ...otherProps
+  onClick
 }) => {
   const handleActionClick = (evt: React.MouseEvent<ContainerElement>) => {
     if (isDisabled) {
@@ -44,7 +46,7 @@ export const Button: FC<ButtonProps> = ({
       case TypeElement.BUTTON:
         return (
           <button
-            {...otherProps}
+            id={id}
             className={classNames(cls.button, {}, [cls[className], cls[theme]])}
             type={type || 'button'}
             disabled={isDisabled}
@@ -57,7 +59,7 @@ export const Button: FC<ButtonProps> = ({
       case TypeElement.LINK:
         return (
           <Link
-            {...otherProps}
+            id={id}
             to={link}
             className={classNames(cls.link, {}, [cls[className], cls[theme]])}
           >

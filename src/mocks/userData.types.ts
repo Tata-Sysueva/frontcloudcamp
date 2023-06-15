@@ -10,4 +10,5 @@ export type UserDataType = {
   tel: string;
   email: string;
   socialLinks: SocialLinksType;
+  sex: 'man' | 'woman';
 };

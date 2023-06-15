@@ -1,5 +1,5 @@
 @mixin field {
-    padding: 12px;
+    padding: 11px;
     background: var(--inverted-bg-color-variants);
     border: 1px solid var(--primary-color-variants);
     border-radius: 4px;
@@ -13,3 +13,9 @@
     }
 }
 
+@mixin form-control-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 24px;
+};

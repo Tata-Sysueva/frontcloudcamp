@@ -1,0 +1,7 @@
+@import '../../../app/styles/variables/mixins';
+
+.formControlWrapper {
+  @include form-control-wrapper;
+  min-width: 230px;
+  max-width: 300px;
+}

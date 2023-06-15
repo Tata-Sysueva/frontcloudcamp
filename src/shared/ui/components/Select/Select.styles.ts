@@ -65,6 +65,7 @@ export const selectStyles = (
   return {
     control: (styles, { isDisabled }) => ({
       ...styles,
+      width: '100%',
       minHeight: '44px',
       padding: '12px',
       color: style.control.color,

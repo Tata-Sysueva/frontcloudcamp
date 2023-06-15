@@ -7,8 +7,16 @@
       "success": "Форма успешно отправлена"
     },
     "labels": {
+      "about": "О себе",
+      "advantages": "Преимущества",
+      "checkbox": "Checkbox group",
       "email": "Электронная почта",
-      "number_phone": "Номер телефона"
+      "name": "Имя",
+      "nickname": "Никнейм",
+      "number_phone": "Номер телефона",
+      "radio": "Radio group",
+      "sex": "Пол",
+      "surname": "Фамилия"
     },
     "links": {
       "to_main": "На главную",
@@ -16,8 +24,10 @@
     }
   },
   "general_actions": {
+    "add": "Добавить",
     "back": "Назад",
     "close": "Закрыть",
+    "delete": "Удалить",
     "next": "Далее",
     "open": "Открыть",
     "submit": "Отправить",

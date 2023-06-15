@@ -1,4 +1,5 @@
 import upperFirst from 'lodash/upperFirst';
+
 import { type SocialLinksType } from 'mocks/userData.types';
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -17,6 +18,8 @@ export const SocialLinks = ({
         key={link}
         className={cls.socialLinks}
         href={socialLinks[link]}
+        target="_blank"
+        rel="noreferrer"
       >
         {upperFirst(link)}
       </a>

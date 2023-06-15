@@ -2,8 +2,13 @@
   display: flex;
   flex-direction: column;
   gap: 66px;
-
   padding: 62px 110px 40px;
+
+  @media screen and (max-width: '576px') {
+    gap: 30px;
+    padding-right: 33px;
+    padding-left: 33px;
+  }
 }
 
 .footer {

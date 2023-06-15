@@ -1,6 +1,7 @@
+import { ImBrightnessContrast } from 'react-icons/im';
+
 import { useTheme } from 'app/providers/ThemeProviders';
 import { Theme } from 'app/providers/ThemeProviders/lib/ThemeContext';
-import { ReactComponent as ToggleIcon } from 'shared/assets/icons/theme-toggle-icon.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/components/Button/Button';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
@@ -25,8 +26,7 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
         cls[theme || Theme.LIGHT]
       ])}
       onClick={toggleTheme}
-    >
-      <ToggleIcon />
-    </Button>
+      icon={<ImBrightnessContrast />}
+    />
   );
 };

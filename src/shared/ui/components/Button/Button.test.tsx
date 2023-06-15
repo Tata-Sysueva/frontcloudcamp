@@ -1,5 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 import { MdClose } from 'react-icons/md';
+
 import { TypeElement, ThemeButton } from 'shared/ui/constants/constants';
 
 import { Button } from './Button';

@@ -1,6 +1,7 @@
 import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
 import { MdLanguage } from 'react-icons/md';
+
 import { Button } from 'shared/ui/components/Button/Button';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
 

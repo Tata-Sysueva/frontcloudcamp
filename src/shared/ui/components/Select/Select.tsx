@@ -1,7 +1,8 @@
-import { useTheme } from 'app/providers/ThemeProviders';
-import { Theme } from 'app/providers/ThemeProviders/lib/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import Select from 'react-select';
+
+import { useTheme } from 'app/providers/ThemeProviders';
+import { Theme } from 'app/providers/ThemeProviders/lib/ThemeContext';
 
 import { selectStyles } from './Select.styles';
 

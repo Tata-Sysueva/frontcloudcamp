@@ -51,12 +51,11 @@ export const CreatePage = () => {
         updateStep={updateStep}
       />
 
-      <div className={cls.content}>
-        <Content />
-      </div>
+      <Content />
 
       <div className={cls.footer}>
         <Button
+          id="button-back"
           element={TypeElement.BUTTON}
           theme={ThemeButton.OUTLINE}
           onClick={handleBackButtonClick}
@@ -64,6 +63,7 @@ export const CreatePage = () => {
           {t('general_actions:back')}
         </Button>
         <Button
+          id="button-next"
           element={TypeElement.BUTTON}
           theme={ThemeButton.PRIMARY}
           onClick={handleNextButtonClick}
