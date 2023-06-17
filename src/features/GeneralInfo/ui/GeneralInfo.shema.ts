@@ -5,7 +5,7 @@ import { checkField } from 'features/utils';
 export type GeneralInfoFormValues = z.infer<typeof GeneralInfoSchema>;
 
 export const GeneralInfoSchema = z.object({
-  about: z.string().max(200).nullable(),
+  about: z.string().trim().max(200, { message: 'invalid_textaria' }).nullable(),
   nickname: z
     .string()
     .max(30)

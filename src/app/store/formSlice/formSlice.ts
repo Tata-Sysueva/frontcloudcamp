@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { type FormData } from 'app/types/redux';
+import { type FormDataType } from 'app/types/redux';
 import { NameSpace } from 'constants/constants';
 import { UserData } from 'mocks/userData';
 
-const initialState: FormData = {
+const initialState: FormDataType = {
   formData: {
     tel: UserData.tel,
     email: UserData.email,

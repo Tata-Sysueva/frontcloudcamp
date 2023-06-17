@@ -16,7 +16,10 @@ export type UserDataType = {
   tel: string | null;
   email: string | null;
   socialLinks: SocialLinksType;
-  sex: 'man' | 'woman' | null;
+  sex: {
+    value: 'man' | 'woman';
+    label: string;
+  } | null;
   advantages: AdvantagesType[] | null;
   radio: number | string | null;
   checkboxes: number[] | string[] | null;

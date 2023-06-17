@@ -28,7 +28,7 @@ export const GeneralInfo = () => {
       <FormControl
         id="field-nickname"
         label={t('enums:labels.nickname')}
-        helperText="Tip"
+        helperText={t('enums:notes.tip')}
         errorMessage={
           errors.nickname ? t(`general_errors:invalid_nickname`) : undefined
         }
@@ -43,7 +43,7 @@ export const GeneralInfo = () => {
       <FormControl
         id="field-name"
         label={t('enums:labels.name')}
-        helperText="Tip"
+        helperText={t('enums:notes.tip')}
         errorMessage={
           errors.name ? t(`general_errors:invalid_name`) : undefined
         }
@@ -58,7 +58,7 @@ export const GeneralInfo = () => {
       <FormControl
         id="field-surname"
         label={t('enums:labels.surname')}
-        helperText="Tip"
+        helperText={t('enums:notes.tip')}
         errorMessage={
           errors.surname ? t(`general_errors:invalid_name`) : undefined
         }

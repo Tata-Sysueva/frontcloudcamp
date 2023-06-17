@@ -23,6 +23,9 @@
       "to_main": "To main",
       "start": "Start"
     },
+    "notes": {
+      "tip": "Tip"
+    },
     "people": {
       "man": "man",
       "woman": "woman"
@@ -46,15 +49,12 @@
     "invalid_email": "Email is invalid",
     "invalid_name": "Must be 50 or fewer characters long, only letters",
     "invalid_nickname": "Must be 30 or fewer characters long, only letters and numbers",
-    "invalid_phone_number": "Add correct phone number"
+    "invalid_phone_number": "Add correct phone number",
+    "invalid_textaria": "Must be 200 or fewer characters long"
   },
   "general_placeholders": {
     "no_options": "No options",
     "not_chosen": "Not chosen",
     "enter_text": "Placeholder"
-  },
-  "navigation": {
-    "main": "Main",
-    "about": "About"
   }
 }

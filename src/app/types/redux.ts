@@ -5,8 +5,8 @@ export type State = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export type AdvantagesType = {
-  id: number;
-  advantage: string;
+  id?: number | undefined;
+  advantage: string | null;
 };
 
 export interface FormFieldsData {
@@ -16,12 +16,15 @@ export interface FormFieldsData {
   name: null | string;
   surname: null | string;
   about: null | string;
-  sex: 'man' | 'woman' | null;
+  sex: {
+    value: 'man' | 'woman';
+    label: string;
+  } | null;
   advantages: AdvantagesType[] | null;
   radio: number | string | null;
   checkboxes: number[] | string[] | null;
 }
 
-export interface FormData {
+export interface FormDataType {
   formData: FormFieldsData;
 }

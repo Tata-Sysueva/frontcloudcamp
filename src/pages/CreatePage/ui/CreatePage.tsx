@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { setFormInfo } from 'app/store/formSlice/formSlice';
 import { selectFormInfo } from 'app/store/formSlice/selectors';
+import { type FormFieldsData } from 'app/types/redux';
 import { AboutInfo } from 'features/AboutInfo';
 import { AdvantagesInfo } from 'features/AdvantagesInfo';
 import {
@@ -57,6 +58,14 @@ export const CreatePage = () => {
       ? navigate(-1)
       : updateCurrentStep(currentStep - 1);
 
+  const onDispatchData = (formDataUpdate: FormFieldsData) => {
+    if (currentStep < Steps.StepThree) {
+      updateCurrentStep(currentStep + 1);
+    }
+
+    dispatch(setFormInfo({ ...formDataUpdate }));
+  };
+
   return (
     <div className={cls.pageWrapper}>
       <Stepper
@@ -98,14 +107,10 @@ export const CreatePage = () => {
               return acc;
             }, {});
 
-            dispatch(setFormInfo({ ...formData, ...updatedForm }));
-
-            if (currentStep < Steps.StepThree) {
-              updateCurrentStep(currentStep + 1);
-            }
+            return onDispatchData({ ...formData, ...updatedForm });
           })}
         >
-          {currentStep === 3
+          {currentStep === Steps.StepThree
             ? t('general_actions:submit')
             : t('general_actions:next')}
         </Button>
