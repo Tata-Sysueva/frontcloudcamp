@@ -1,30 +1,28 @@
-import { useState } from 'react';
+import React, { type InputHTMLAttributes } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './Checkbox.module.scss';
 
-interface CheckboxProps {
+interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   description: string | number;
-  onCheck: (id: string) => void;
+  isChecked: boolean;
+  onChange: (evt: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Checkbox = ({ id, description, onCheck }: CheckboxProps) => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  return (
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ id, description, isChecked, onChange, ...otherProps }, ref) => (
     <label
       className={cls.checkboxWrapper}
       htmlFor={id}
     >
       <input
+        {...otherProps}
+        ref={ref}
         id={id}
         type="checkbox"
-        onChange={() => {
-          setIsChecked(!isChecked);
-          onCheck(id);
-        }}
+        onChange={(evt) => onChange(evt)}
       />
       <span
         className={classNames(
@@ -36,5 +34,5 @@ export const Checkbox = ({ id, description, onCheck }: CheckboxProps) => {
       />
       {description}
     </label>
-  );
-};
+  )
+);

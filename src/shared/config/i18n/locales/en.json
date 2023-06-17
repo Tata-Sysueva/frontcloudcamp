@@ -22,6 +22,10 @@
     "links": {
       "to_main": "To main",
       "start": "Start"
+    },
+    "people": {
+      "man": "man",
+      "woman": "woman"
     }
   },
   "general_actions": {
@@ -38,7 +42,11 @@
     "user_avatar": "User avatar"
   },
   "general_errors": {
-    "not_found_page": "Not Found Page"
+    "not_found_page": "Not Found Page",
+    "invalid_email": "Email is invalid",
+    "invalid_name": "Must be 50 or fewer characters long, only letters",
+    "invalid_nickname": "Must be 30 or fewer characters long, only letters and numbers",
+    "invalid_phone_number": "Add correct phone number"
   },
   "general_placeholders": {
     "no_options": "No options",

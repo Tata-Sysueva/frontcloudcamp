@@ -6,16 +6,16 @@ import cls from './UserProfile.module.scss';
 import { firstLetters } from '../utils/utils';
 
 export const UserProfile = ({ userData }: { userData: UserDataType }) => {
-  const { avatar, name, socialLinks } = userData;
+  const { avatar, fullname, socialLinks } = userData;
 
   return (
     <div className={cls.userProfileWrapper}>
       <Avatar
-        src={avatar}
-        initials={firstLetters(name).toUpperCase()}
+        src={avatar || ''}
+        initials={firstLetters(fullname).toUpperCase()}
       />
       <div className={cls.userInfoWrapper}>
-        <h2 className={cls.userName}>{name}</h2>
+        <h2 className={cls.userName}>{fullname}</h2>
         <div className={cls.socialLinksBox}>
           <SocialLinks socialLinks={socialLinks} />
         </div>

@@ -1,3 +1,5 @@
+import { type AdvantagesType } from 'app/types/redux';
+
 export type SocialLinksType = {
   telegram: string;
   gitHub: string;
@@ -5,10 +7,17 @@ export type SocialLinksType = {
 };
 
 export type UserDataType = {
-  avatar: string;
-  name: string;
-  tel: string;
-  email: string;
+  about: string | null;
+  avatar: string | null;
+  nickname: string | null;
+  name: string | null;
+  fullname: string;
+  surname: string | null;
+  tel: string | null;
+  email: string | null;
   socialLinks: SocialLinksType;
-  sex: 'man' | 'woman';
+  sex: 'man' | 'woman' | null;
+  advantages: AdvantagesType[] | null;
+  radio: number | string | null;
+  checkboxes: number[] | string[] | null;
 };

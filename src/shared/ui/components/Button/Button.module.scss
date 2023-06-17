@@ -80,12 +80,12 @@
 
 .circleWrapper div {
     &:hover {
-        background-color: var(--dark-assent-color);
+        background-color: var(--light-accent-color);
     }
 
     &:focus {
         opacity: 1;
-        box-shadow: 8px 10px 56px -7px var(--dark-assent-color);
+        box-shadow: 8px 10px 56px -7px var(--light-accent-color);
     }
 }
 

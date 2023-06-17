@@ -4,5 +4,6 @@ export const TypeModal = {
 } as const;
 
 export enum NameSpace {
-  MODAL = 'MODAL'
+  MODAL = 'MODAL',
+  FORM = 'FORM'
 }

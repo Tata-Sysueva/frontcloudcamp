@@ -1,12 +1,23 @@
 import { useState } from 'react';
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import isEqual from 'lodash/isEqual';
+import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { setFormInfo } from 'app/store/formSlice/formSlice';
+import { selectFormInfo } from 'app/store/formSlice/selectors';
 import { AboutInfo } from 'features/AboutInfo';
 import { AdvantagesInfo } from 'features/AdvantagesInfo';
+import {
+  type ChangedFormInfoValues,
+  FormDataValidationShema
+} from 'features/common.shema';
 import { GeneralInfo } from 'features/GeneralInfo';
 import { Steps } from 'pages/constans';
+import { getInitialFormState } from 'pages/utils';
 import { Button } from 'shared/ui/components/Button/Button';
 import { Stepper } from 'shared/ui/components/Stepper/Stepper';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
@@ -26,6 +37,15 @@ export const CreatePage = () => {
   const navigate = useNavigate();
   const [t] = useTranslation();
 
+  const dispatch = useAppDispatch();
+  const formData = useAppSelector(selectFormInfo);
+
+  const methods = useForm({
+    defaultValues: getInitialFormState(formData),
+    mode: 'onBlur',
+    resolver: zodResolver(FormDataValidationShema)
+  });
+
   const Content = formOfStep[currentStep];
 
   const updateStep = (step: number) => {
@@ -37,11 +57,6 @@ export const CreatePage = () => {
       ? navigate(-1)
       : updateCurrentStep(currentStep - 1);
 
-  const handleNextButtonClick = () =>
-    currentStep === Steps.StepThree
-      ? console.debug('Submit data, open modal')
-      : updateCurrentStep(currentStep + 1);
-
   return (
     <div className={cls.pageWrapper}>
       <Stepper
@@ -51,7 +66,9 @@ export const CreatePage = () => {
         updateStep={updateStep}
       />
 
-      <Content />
+      <FormProvider {...methods}>
+        <Content />
+      </FormProvider>
 
       <div className={cls.footer}>
         <Button
@@ -66,7 +83,27 @@ export const CreatePage = () => {
           id="button-next"
           element={TypeElement.BUTTON}
           theme={ThemeButton.PRIMARY}
-          onClick={handleNextButtonClick}
+          onClick={methods.handleSubmit((data) => {
+            const initialValues = getInitialFormState(formData);
+            const updatedForm = (
+              Object.keys(data) as (keyof typeof data)[]
+            ).reduce<ChangedFormInfoValues>((acc, key) => {
+              const currentValue = data[key];
+              const initialValue = initialValues[key];
+
+              if (!isEqual(currentValue, initialValue)) {
+                (acc[key] as typeof currentValue) = currentValue;
+              }
+
+              return acc;
+            }, {});
+
+            dispatch(setFormInfo({ ...formData, ...updatedForm }));
+
+            if (currentStep < Steps.StepThree) {
+              updateCurrentStep(currentStep + 1);
+            }
+          })}
         >
           {currentStep === 3
             ? t('general_actions:submit')

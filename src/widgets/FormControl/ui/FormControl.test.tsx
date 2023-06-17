@@ -41,7 +41,7 @@ describe('FormControl', () => {
     const { getByText } = render(
       <FormControl
         id="username"
-        error="Username is already taken"
+        errorMessage="Username is already taken"
       >
         <input
           type="text"

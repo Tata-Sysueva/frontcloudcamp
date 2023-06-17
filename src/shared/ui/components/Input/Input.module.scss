@@ -2,10 +2,6 @@
 
 .field {
   @include field;
-
-  &:disabled {
-    background-color: var(--bg-color);
-  }
 }
 
 

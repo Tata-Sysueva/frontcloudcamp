@@ -1,30 +1,43 @@
 import { useEffect, useState } from 'react';
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { IoIosMenu } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 
+import { useAppDispatch, useAppSelector } from 'app/hooks';
+import { setFormInfo } from 'app/store/formSlice/formSlice';
+import { selectFormInfo } from 'app/store/formSlice/selectors';
 import { ContactInfo } from 'features/ContactInfo';
+import { ContactsInfoSchema } from 'features/ContactInfo/ui/ContactInfo.shema';
 import { useResize } from 'hooks/useResize';
 import { UserData } from 'mocks/userData';
+import { getInitialContactState } from 'pages/utils';
 import { Button } from 'shared/ui/components/Button/Button';
 import { Menu } from 'shared/ui/components/Menu/Menu';
-import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';
+import { TypeElement } from 'shared/ui/constants/constants';
 import { AppRoutes } from 'shared/ui/constants/routeConstants';
 import { SocialLinks } from 'widgets/SocialLinks';
 import { SwitchersBar } from 'widgets/SwitchersBar';
-import { UserProfile } from 'widgets/UserProfile';
 
+import { MainPageHeader } from './components/MainPageHeader/MainPageHeader';
 import cls from './MainPage.module.scss';
 
 export const MainPage = () => {
   const [isOpenedMenu, setOpenedMenu] = useState(false);
   const { isScreenSm } = useResize();
 
-  const methods = useForm();
-  const handlButtonStart = () => console.debug('click button start');
+  const dispatch = useAppDispatch();
+  const formData = useAppSelector(selectFormInfo);
 
   const [t] = useTranslation();
+  const navigate = useNavigate();
+
+  const methods = useForm({
+    defaultValues: getInitialContactState(formData),
+    mode: 'onBlur',
+    resolver: zodResolver(ContactsInfoSchema)
+  });
 
   useEffect(() => {
     if (isScreenSm) setOpenedMenu(false);
@@ -32,34 +45,19 @@ export const MainPage = () => {
 
   return (
     <div className={cls.pageWrapper}>
-      <div className={cls.pageHeader}>
-        <UserProfile userData={UserData} />
-        {isScreenSm && <SwitchersBar />}
-        <Button
-          id="button-open"
-          element={TypeElement.BUTTON}
-          theme={ThemeButton.CLEAR}
-          className="openMenu"
-          icon={
-            <IoIosMenu
-              size={32}
-              style={{ fill: '#5558fa' }}
-            />
-          }
-          onClick={() => setOpenedMenu(true)}
-        >
-          <span className="visually-hidden">{t('general_actions:open')}</span>
-        </Button>
-      </div>
+      <MainPageHeader onOpenMenu={setOpenedMenu} />
       <div className={cls.pageContent}>
         <FormProvider {...methods}>
           <ContactInfo />
         </FormProvider>
         <Button
           id="button-start"
-          element={TypeElement.LINK}
-          link={AppRoutes.CREATE}
-          onClick={handlButtonStart}
+          element={TypeElement.BUTTON}
+          onClick={methods.handleSubmit((data) => {
+            dispatch(setFormInfo({ ...data, ...formData }));
+
+            navigate(AppRoutes.CREATE);
+          })}
         >
           {t('enums:links.start')}
         </Button>

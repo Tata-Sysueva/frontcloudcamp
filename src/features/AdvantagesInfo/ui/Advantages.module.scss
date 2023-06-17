@@ -8,11 +8,17 @@
   display: flex;
   gap: 8px;
   max-width: 336px;
-  margin-bottom: 16px;
 }
 
 .checkboxGroup {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  max-width: 300px;
+}
+
+.advantagesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

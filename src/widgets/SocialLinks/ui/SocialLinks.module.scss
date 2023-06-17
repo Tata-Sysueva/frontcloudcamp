@@ -15,11 +15,11 @@
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline var(--dark-assent-color);
+    text-decoration: underline var(--dark-accent-color);
   }
 
   &:focus {
-    color: var(--dark-assent-color);
+    color: var(--dark-accent-color);
   }
 
   &:active {

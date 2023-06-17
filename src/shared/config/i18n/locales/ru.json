@@ -21,6 +21,10 @@
     "links": {
       "to_main": "На главную",
       "start": "Начать"
+    },
+    "people": {
+      "man": "муж",
+      "woman": "жен"
     }
   },
   "general_actions": {
@@ -37,7 +41,11 @@
     "user_avatar": "Фото пользователя"
   },
   "general_errors": {
-    "not_found_page": "Страница не найдена"
+    "not_found_page": "Страница не найдена",
+    "invalid_email": "Неправильный формат эл.почты",
+    "invalid_name": "Должно быть 50 знаков или меньше, только буквы",
+    "invalid_nickname": "Должно быть 30 знаков или меньше, только буквы и цифры",
+    "invalid_phone_number": "Добавьте корректный номер телефона"
   },
   "general_placeholders": {
     "no_options": "Вариантов нет",

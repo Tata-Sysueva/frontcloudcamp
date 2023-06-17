@@ -62,6 +62,7 @@ export const Button: FC<ButtonProps> = ({
             id={id}
             to={link}
             className={classNames(cls.link, {}, [cls[className], cls[theme]])}
+            onClick={(evt) => handleActionClick(evt)}
           >
             {icon && icon}
             {children}

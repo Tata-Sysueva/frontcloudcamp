@@ -1,14 +1,15 @@
-import { type FieldsetHTMLAttributes } from 'react';
+import { type ReactNode } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import cls from './Formcontrol.module.scss';
 
-interface FormControlProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
+interface FormControlProps {
   id: string;
   label?: string;
   helperText?: string;
-  error?: string;
+  errorMessage?: string;
+  children: ReactNode;
   className?: string;
 }
 
@@ -16,12 +17,12 @@ export const FormControl = ({
   id,
   label,
   helperText,
-  error,
+  errorMessage,
   children,
   className = '',
   ...otherProps
 }: FormControlProps) => (
-  <fieldset
+  <div
     className={classNames(cls.fieldset, {}, [className])}
     {...otherProps}
   >
@@ -29,7 +30,9 @@ export const FormControl = ({
 
     {children}
 
-    {helperText != null && <span className={cls.helperText}>{helperText}</span>}
-    {error != null && <span className={cls.error}>{error}</span>}
-  </fieldset>
+    {helperText && !errorMessage ? (
+      <span className={cls.helperText}>{helperText}</span>
+    ) : null}
+    {errorMessage ? <span className={cls.error}>{errorMessage}</span> : null}
+  </div>
 );

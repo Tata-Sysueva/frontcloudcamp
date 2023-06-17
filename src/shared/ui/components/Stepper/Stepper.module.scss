@@ -19,7 +19,7 @@
 .complitedProgress {
   height: 100%;
   text-align: right;
-  background-color: var(--accent-color);
+  background-color: var(--dark-accent-color);
   border-radius: 8px;
 };
 
@@ -46,7 +46,7 @@
 
 .selected .circle,
 .complited .circle {
-  background-color: var(--accent-color);
+  background-color: var(--dark-accent-color);
 }
 
 .selected .circle {
@@ -91,7 +91,7 @@
 
 .selected .stepLabel,
 .complited .stepLabel {
-  color: var(--accent-color)
+  color: var(--dark-accent-color)
 }
 
 .stepBlock {
