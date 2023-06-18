@@ -7,9 +7,16 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { setFormInfo } from 'app/store/formSlice/formSlice';
-import { selectFormInfo } from 'app/store/formSlice/selectors';
+import { useAdapter } from 'app/hooks/useAdapter';
+import { usePostFormDataMutation } from 'app/store/api';
+import {
+  resetFormInfo,
+  setFormInfo
+} from 'app/store/slices/formSlice/formSlice';
+import { selectFormInfo } from 'app/store/slices/formSlice/selectors';
+import { showModal } from 'app/store/slices/modalSlice/modalSlice';
 import { type FormFieldsData } from 'app/types/redux';
+import { TypeModal } from 'constants/constants';
 import { AboutInfo } from 'features/AboutInfo';
 import { AdvantagesInfo } from 'features/AdvantagesInfo';
 import {
@@ -37,15 +44,20 @@ export const CreatePage = () => {
   const [currentStep, updateCurrentStep] = useState(Steps.StepOne);
   const navigate = useNavigate();
   const [t] = useTranslation();
+  const { formData: formDataApi } = useAdapter();
 
   const dispatch = useAppDispatch();
   const formData = useAppSelector(selectFormInfo);
+
+  const [postFormData, { isLoading }] = usePostFormDataMutation();
 
   const methods = useForm({
     defaultValues: getInitialFormState(formData),
     mode: 'onBlur',
     resolver: zodResolver(FormDataValidationShema)
   });
+
+  const { reset } = methods;
 
   const Content = formOfStep[currentStep];
 
@@ -58,13 +70,28 @@ export const CreatePage = () => {
       ? navigate(-1)
       : updateCurrentStep(currentStep - 1);
 
-  const onDispatchData = (formDataUpdate: FormFieldsData) => {
+  const handleButtonNextClick = async (formDataUpdate: FormFieldsData) => {
+    dispatch(setFormInfo({ ...formDataUpdate }));
+
     if (currentStep < Steps.StepThree) {
       updateCurrentStep(currentStep + 1);
     }
 
-    dispatch(setFormInfo({ ...formDataUpdate }));
+    if (currentStep === Steps.StepThree) {
+      try {
+        await postFormData(formDataApi);
+        reset();
+        dispatch(resetFormInfo());
+        dispatch(showModal({ type: TypeModal.Success }));
+      } catch (e) {
+        console.error(e);
+        dispatch(showModal({ type: TypeModal.Error }));
+      }
+    }
   };
+
+  const getSubmitBtnText = () =>
+    isLoading ? t('general_actions:submitting') : t('general_actions:submit');
 
   return (
     <div className={cls.pageWrapper}>
@@ -92,6 +119,7 @@ export const CreatePage = () => {
           id="button-next"
           element={TypeElement.BUTTON}
           theme={ThemeButton.PRIMARY}
+          isDisabled={isLoading}
           onClick={methods.handleSubmit((data) => {
             const initialValues = getInitialFormState(formData);
             const updatedForm = (
@@ -107,11 +135,11 @@ export const CreatePage = () => {
               return acc;
             }, {});
 
-            return onDispatchData({ ...formData, ...updatedForm });
+            return handleButtonNextClick({ ...formData, ...updatedForm });
           })}
         >
           {currentStep === Steps.StepThree
-            ? t('general_actions:submit')
+            ? getSubmitBtnText()
             : t('general_actions:next')}
         </Button>
       </div>

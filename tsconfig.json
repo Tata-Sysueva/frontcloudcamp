@@ -30,9 +30,7 @@
       "src/*.json",
       "config/**/*.ts",
       "config/**/*.tsx",
-      "config/jest/setupTests.ts", 
-      "config/storybook/*.tsx",
-      "config/storybook/webpack.config.ts", "config/storybook/decorators/WithTheme.tsx"
+      "config/jest/setupTests.ts"
     ],
   "ts-node": {
     "compilerOptions": {

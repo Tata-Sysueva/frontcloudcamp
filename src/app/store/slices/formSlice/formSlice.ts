@@ -25,11 +25,14 @@ export const formSlice = createSlice({
   reducers: {
     setFormInfo: (state, action) => {
       state.formData = action.payload;
+    },
+    resetFormInfo: (state) => {
+      state.formData = initialState.formData;
     }
   }
 });
 
-export const { setFormInfo } = formSlice.actions;
+export const { setFormInfo, resetFormInfo } = formSlice.actions;
 
 // eslint-disable-next-line import/no-default-export -- Allow in this file
 export default formSlice.reducer;

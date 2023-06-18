@@ -6,11 +6,11 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { setFormInfo } from 'app/store/formSlice/formSlice';
-import { selectFormInfo } from 'app/store/formSlice/selectors';
+import { useResize } from 'app/hooks/useResize';
+import { setFormInfo } from 'app/store/slices/formSlice/formSlice';
+import { selectFormInfo } from 'app/store/slices/formSlice/selectors';
 import { ContactInfo } from 'features/ContactInfo';
 import { ContactsInfoSchema } from 'features/ContactInfo/ui/ContactInfo.shema';
-import { useResize } from 'hooks/useResize';
 import { UserData } from 'mocks/userData';
 import { getInitialContactState } from 'pages/utils';
 import { Button } from 'shared/ui/components/Button/Button';

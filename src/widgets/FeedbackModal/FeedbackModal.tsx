@@ -2,8 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'app/hooks';
-import { hideModal } from 'app/store/modalSlice/modalSlice';
-import { selectModalType } from 'app/store/modalSlice/selectors';
+import { hideModal } from 'app/store/slices/modalSlice/modalSlice';
+import { selectModalType } from 'app/store/slices/modalSlice/selectors';
 import { TypeModal } from 'constants/constants';
 import { Button } from 'shared/ui/components/Button/Button';
 import { Modal } from 'shared/ui/components/Modal/Modal';

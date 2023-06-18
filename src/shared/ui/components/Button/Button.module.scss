@@ -34,6 +34,12 @@
     &:hover {
         background: var(--secondary-accent-color);
     }
+
+    &:disabled {
+        &:hover {
+            background-color: var(--accent-color);
+        }
+    }
 }
 
 .outline {

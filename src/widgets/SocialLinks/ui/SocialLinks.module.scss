@@ -27,22 +27,31 @@
   }
 }
 
-.socialLinks::before {
-  content: '';
+//TODO: fix problem with import assets for bg-image
 
-  display: block;
+// .socialLinks::before {
+//   content: '';
 
-  width: 13px;
-  height: 12px;
+//   display: block;
 
-  color: var(--main-color);
+//   width: 13px;
+//   height: 12px;
 
-  background-color: var(--main-color);
-  background-image: url('../../../shared/assets/icons/file-icon.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-}
+//   color: var(--main-color);
+
+//   background-image: url('../../../shared/assets/icons/file-icon.svg');
+//   background-repeat: no-repeat;
+//   background-position: center;
+// }
 
 .socialLinksWrapper.socialLinksMenu {
   flex-direction: column;
+}
+
+.linkWrapper {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  color: var(--main-color);
 }

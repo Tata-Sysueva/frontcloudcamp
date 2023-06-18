@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { IoIosMenu } from 'react-icons/io';
 
-import { useResize } from 'hooks/useResize';
+import { useResize } from 'app/hooks/useResize';
 import { UserData } from 'mocks/userData';
 import { Button } from 'shared/ui/components/Button/Button';
 import { ThemeButton, TypeElement } from 'shared/ui/constants/constants';

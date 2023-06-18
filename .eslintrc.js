@@ -2,10 +2,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['react', 'i18next'],
-  extends: [
-    './config/eslint/.eslintrc.base.js',
-    'plugin:storybook/recommended'
-  ],
+  extends: ['./config/eslint/.eslintrc.base.js'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
