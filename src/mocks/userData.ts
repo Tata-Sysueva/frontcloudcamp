@@ -12,7 +12,8 @@ export const UserData: UserDataType = {
   socialLinks: {
     telegram: 'https://t.me/tra_tata160',
     gitHub: 'https://github.com/Tata-Sysueva',
-    resume: 'files/resume.pdf'
+    resume:
+      'https://vladivostok.hh.ru/resume/483e7f32ff0bff90cc0039ed1f754233613649'
   },
   sex: null,
   advantages: [
